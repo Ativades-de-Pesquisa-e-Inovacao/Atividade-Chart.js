@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Tag que importa a biblioteca-->
+</head>
+
+<body>
+    
+    <div>
+        <canvas id="myChart"></canvas> <!--Tela em branco em que vamos plotar o grafico-->
+    </div>
+
+    
+
+
+</body>
+<script> // Preparação para o grafico (Não irá exibir nada)
+    const labels = [ //Vetor de labels
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Junho',
+    ];
+
+    const data = { //Json/Dataset
+        labels: labels, //O primeiro labels é da constante e está igualando com o labels da constante anterior ex: janeiro == 0
+        datasets: [
+            { //Metricas para o grafico, se eu clonar tudo que está entre chaves posso adicionar outro elemento
+            label: 'Meu primeiro dataset',
+            backgroundColor: 'rgb(255, 99, 132)', //cor da bolinha nas linhas
+            borderColor: 'rgb(255, 99, 132)', //cor da linha 
+            data: [0, 10, 5, 2, 20, 30, 45],
+            }
+        ]
+    };
+
+    const config = {
+        type: 'line', //tipo do grafico
+        data: data, //Referenciando os dados do Dataset
+        option: {}
+    };
+</script>
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'), //Aqui ele fala onde vai ser renderizado o grafico no caso o Canvas na div
+        config // ele fala quais configurações que vai ser usado, no caso a linha 42
+    );
+</script>
+
+</html>
